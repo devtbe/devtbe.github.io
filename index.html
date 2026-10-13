@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>devtbe — app per Android</title>
+<meta name="description" content="Piccole app per Android, fatte con cura. Tra queste Verba volant, un modo di dire al giorno in cinque lingue.">
+<link rel="icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/stile.css">
+<style>
+.apertura { padding-top: 96px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 20px; }
+.apertura .corpo { max-width: 34em; font-size: 19px; }
+.app { display: flex; flex-wrap: wrap; align-items: center; gap: 28px 40px; padding: 32px; background: var(--bianco); border: 1px solid var(--linea); border-radius: 28px; margin-bottom: 96px; }
+.app img { width: 112px; height: 112px; border-radius: 26px; }
+.app .testo { flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.app .azioni { display: flex; flex-wrap: wrap; gap: 10px; }
+.stato { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--accento); border: 1px solid var(--accento); border-radius: 999px; padding: 4px 12px; }
+</style>
+</head>
+<body>
+<header class="testata">
+  <nav class="contenitore" aria-label="Principale">
+    <a class="marchio" href="./"><span>devtbe</span></a>
+    <div class="voci">
+      <a href="#app">Le app</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="contenitore apertura">
+    <p class="occhiello">devtbe</p>
+    <h1 class="titolo grande">Piccole app, fatte con cura.</h1>
+    <p class="corpo">App per Android pensate per una cosa sola, fatta bene. Gratuite e senza pubblicità.</p>
+  </section>
+
+  <section id="app" class="contenitore" aria-labelledby="titolo-app">
+    <h2 id="titolo-app" class="occhiello" style="margin-bottom: 20px">Le app</h2>
+
+    <article class="app">
+      <img src="assets/verbavolant-icona.png" alt="Icona di Verba volant" width="112" height="112">
+      <div class="testo">
+        <span class="stato">In arrivo su Google Play</span>
+        <h3 class="titolo piccolo" style="font-size: 32px">Verba volant</h3>
+        <p class="corpo">Un modo di dire al giorno, in cinque lingue: italiano, inglese, spagnolo, francese e tedesco, con il significato e l’origine di ogni espressione.</p>
+      </div>
+      <div class="azioni">
+        <a class="pulsante" href="verbavolant/">Scopri Verba volant</a>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="piede">
+  <div class="contenitore">
+    <span>© 2026 devtbe</span>
+    <a href="https://github.com/devtbe">GitHub</a>
+  </div>
+</footer>
+</body>
+</html>

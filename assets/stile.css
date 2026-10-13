@@ -1,0 +1,62 @@
+/* devtbe — stile comune a tutte le pagine */
+:root {
+  --sfondo: #FBF8F2;
+  --bianco: #FFFFFF;
+  --carta: #F3ECE1;
+  --inchiostro: #2F2A26;
+  --testo: #5E564F;
+  --tenue: #6F665E;
+  --lieve: #8F857B;
+  --linea: #ECE5DA;
+  --filo: #CFC4B6;
+  --accento: #A4552F;
+  --accento-scuro: #7E3F21;
+  --serif: 'EB Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--sfondo); color: var(--inchiostro); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+/* il piede resta in fondo anche nelle pagine corte */
+body { display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1 0 auto; }
+img, svg { display: block; }
+a { color: var(--accento); }
+a:hover { color: var(--accento-scuro); }
+:focus-visible { outline: 2px solid var(--accento); outline-offset: 3px; border-radius: 4px; }
+
+.contenitore { max-width: 1160px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.stretto { max-width: 760px; }
+
+/* intestazione */
+.testata { background: var(--bianco); border-bottom: 1px solid var(--linea); }
+.testata nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 16px; padding-bottom: 16px; }
+.marchio { display: flex; align-items: center; gap: 12px; color: var(--inchiostro); text-decoration: none; }
+.marchio:hover { color: var(--inchiostro); }
+.marchio span { font-weight: 600; font-size: 14px; letter-spacing: 2.4px; text-transform: uppercase; }
+.voci { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 26px; font-size: 15px; }
+.voci a { color: var(--inchiostro); text-decoration: none; }
+.voci a:hover { color: var(--accento); }
+
+/* pulsanti */
+.pulsante { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 16px; background: var(--inchiostro); color: var(--sfondo); text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid var(--inchiostro); }
+.pulsante:hover { color: var(--sfondo); background: #1F1B18; }
+.pulsante.chiaro { background: transparent; color: var(--inchiostro); border-color: var(--filo); font-weight: 500; }
+.pulsante.chiaro:hover { border-color: var(--inchiostro); }
+.pulsante.piccolo { min-height: 44px; padding: 0 18px; border-radius: 999px; font-weight: 500; }
+
+/* testi */
+.occhiello { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accento); }
+.titolo { margin: 0; font-family: var(--serif); font-weight: 400; line-height: 1.1; }
+.titolo.grande { font-size: clamp(42px, 5vw, 68px); letter-spacing: -0.5px; }
+.titolo.medio { font-size: clamp(32px, 3.6vw, 46px); line-height: 1.12; }
+.titolo.piccolo { font-size: 26px; }
+.corpo { margin: 0; color: var(--testo); font-size: 17px; line-height: 1.6; }
+.nota { margin: 0; color: var(--tenue); font-size: 14px; }
+
+/* piede */
+.piede { background: var(--bianco); border-top: 1px solid var(--linea); }
+.piede .contenitore { display: flex; flex-wrap: wrap; gap: 24px 64px; justify-content: space-between; padding-top: 40px; padding-bottom: 48px; font-size: 14px; color: var(--tenue); }
+.piede a { color: var(--tenue); }
+.piede a:hover { color: var(--accento); }

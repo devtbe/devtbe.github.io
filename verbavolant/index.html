@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verba volant — un modo di dire al giorno, in cinque lingue</title>
+<meta name="description" content="Un taccuino di 365 modi di dire e proverbi in italiano, inglese, spagnolo, francese e tedesco, con significato e origine. Gratuito e senza pubblicità.">
+<meta property="og:title" content="Verba volant — un modo di dire al giorno">
+<meta property="og:description" content="365 modi di dire e proverbi in cinque lingue, con significato e origine.">
+<meta property="og:image" content="../assets/verbavolant-icona.png">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/stile.css">
+<style>
+/* apertura */
+.apertura { display: flex; flex-wrap: wrap; align-items: center; gap: 56px; padding-top: 72px; padding-bottom: 88px; }
+.apertura .testo { flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.motto { margin: 0; font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--accento); }
+.apertura .corpo { font-size: 19px; max-width: 34em; }
+.pulsanti { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+
+/* il telefono */
+.telefono-box { flex: 0 1 320px; display: flex; justify-content: center; margin: 0 auto; }
+.telefono { width: 300px; height: 610px; border-radius: 44px; border: 10px solid var(--inchiostro); background: var(--sfondo); overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 30px 60px rgba(47,42,38,0.18); }
+.tel-alto { background: var(--bianco); border-bottom: 1px solid var(--linea); height: 58px; display: flex; align-items: center; justify-content: space-between; padding: 8px 14px 0; }
+.tel-alto span { font-size: 11px; font-weight: 600; letter-spacing: 1.6px; color: var(--tenue); text-transform: uppercase; }
+.tel-frase { flex: 1; display: flex; align-items: center; justify-content: center; padding: 0 22px; }
+.tel-frase p { margin: 0; font-family: var(--serif); font-size: 30px; line-height: 1.32; text-align: center; }
+.tel-basso { background: var(--bianco); border-top: 1px solid var(--linea); padding: 6px 10px 14px; }
+.tel-lingue { display: flex; justify-content: space-around; }
+.tel-lingue button { width: 48px; height: 44px; border: 0; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; font: 600 12px var(--sans); letter-spacing: 1.2px; color: var(--lieve); }
+.tel-lingue button::after { content: ''; width: 4px; height: 4px; border-radius: 2px; }
+.tel-lingue button[aria-pressed="true"] { color: var(--inchiostro); }
+.tel-lingue button[aria-pressed="true"]::after { background: var(--accento); }
+.tel-azioni { display: flex; justify-content: center; gap: 30px; padding-top: 6px; }
+
+/* cinque lingue */
+.fascia { background: var(--bianco); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+.sezione { padding-top: 88px; padding-bottom: 88px; display: flex; flex-direction: column; gap: 32px; }
+.intro { display: flex; flex-direction: column; gap: 12px; max-width: 40em; }
+.esempi { display: flex; flex-wrap: wrap; gap: 10px; }
+.esempi button { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--filo); background: transparent; color: var(--inchiostro); font: 18px var(--serif); cursor: pointer; }
+.esempi button[aria-pressed="true"] { background: var(--inchiostro); border-color: var(--inchiostro); color: var(--sfondo); }
+.confronto { display: flex; flex-wrap: wrap; gap: 40px 64px; }
+.righe { flex: 1 1 460px; min-width: 0; margin: 0; padding: 0; list-style: none; }
+.righe li { display: flex; align-items: baseline; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--linea); }
+.righe .codice { width: 28px; flex-shrink: 0; font-size: 12px; font-weight: 600; letter-spacing: 1.4px; color: var(--accento); }
+.righe .esp { font-family: var(--serif); font-size: clamp(22px, 2.2vw, 28px); line-height: 1.3; }
+.dettagli { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 28px; padding-top: 8px; }
+.dettagli .etichetta { margin: 0 0 8px; font-size: 12px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--tenue); }
+.dettagli .sig { margin: 0; font-family: var(--serif); font-size: 22px; line-height: 1.4; }
+.dettagli .orig { margin: 0; font-size: 16px; line-height: 1.65; color: #4A433D; }
+
+/* come funziona */
+.punti { display: flex; flex-wrap: wrap; gap: 40px 48px; }
+.punto { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.punto p { margin: 0; color: var(--testo); line-height: 1.6; }
+
+/* condividi */
+.carta-fascia { background: var(--carta); }
+.condividi { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; padding-top: 88px; padding-bottom: 88px; }
+.condividi .testo { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.carte { flex: 1 1 520px; min-width: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.carta { width: 180px; aspect-ratio: 4 / 5; background: var(--sfondo); border: 1px solid #E2D7C8; border-radius: 6px; box-shadow: 0 10px 24px rgba(47,42,38,0.10); display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 16px 14px; }
+.carta .pag { font-size: 9px; font-weight: 600; letter-spacing: 1.6px; color: var(--tenue); text-transform: uppercase; }
+.carta .centro { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.carta .fr { font-family: var(--serif); font-size: 18px; line-height: 1.3; text-align: center; }
+.carta .filo { width: 18px; height: 1.5px; background: var(--accento); }
+.carta .cod { font-size: 9px; font-weight: 600; letter-spacing: 1.4px; color: var(--accento); }
+.carta .firma { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--tenue); }
+@media (max-width: 560px) { .carta { width: calc(50% - 8px); } }
+
+/* scarica */
+.scarica { padding-top: 104px; padding-bottom: 104px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+.scarica .corpo { font-size: 18px; max-width: 36em; }
+
+/* note */
+.note { flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.note p { margin: 0; line-height: 1.6; }
+.collegamenti { flex: 0 1 280px; display: flex; flex-direction: column; gap: 10px; }
+</style>
+</head>
+<body>
+<header class="testata">
+  <nav class="contenitore" aria-label="Principale">
+    <a class="marchio" href="./">
+      <svg width="34" height="28" viewBox="-12 -13 56 46" aria-hidden="true"><g fill="#A4552F"><path d="M12 0 C12 16 2 28 -10 32 L-11 28 C-3 24 2 18 3 12 A12 12 0 1 1 12 0 Z"/><path transform="translate(30 0)" d="M12 0 C12 16 2 28 -10 32 L-11 28 C-3 24 2 18 3 12 A12 12 0 1 1 12 0 Z"/></g></svg>
+      <span>Verba volant</span>
+    </a>
+    <div class="voci">
+      <a href="#lingue">Cinque lingue</a>
+      <a href="#funziona">Come funziona</a>
+      <a class="pulsante piccolo" href="#scarica" style="color: var(--sfondo)">Scarica</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- apertura -->
+  <section class="contenitore apertura">
+    <div class="testo">
+      <p class="motto">Verba volant, scripta manent</p>
+      <h1 class="titolo grande">Un modo di dire al giorno, in cinque lingue.</h1>
+      <p class="corpo">Verba volant è un taccuino di 365 modi di dire e proverbi. Ogni pagina mostra come la stessa idea si dice in italiano, inglese, spagnolo, francese e tedesco, con il suo significato e la sua origine.</p>
+      <div class="pulsanti">
+        <a class="pulsante" href="#scarica">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
+          Presto su Google Play
+        </a>
+        <a class="pulsante chiaro" href="#funziona">Scopri come funziona</a>
+      </div>
+      <p class="nota">365 pagine · 5 lingue · 25 temi · gratuito e senza pubblicità</p>
+    </div>
+
+    <div class="telefono-box">
+      <div class="telefono" role="img" aria-label="La pagina principale dell’app Verba volant">
+        <div class="tel-alto">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F2A26" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span data-pagina>Pagina 1</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F2A26" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <div class="tel-frase"><p data-frase>Prendere due piccioni con una fava</p></div>
+        <div class="tel-basso">
+          <div class="tel-lingue" aria-label="Lingua della frase">
+            <button type="button" data-lingua="it" aria-pressed="true">IT</button>
+            <button type="button" data-lingua="en" aria-pressed="false">EN</button>
+            <button type="button" data-lingua="es" aria-pressed="false">ES</button>
+            <button type="button" data-lingua="fr" aria-pressed="false">FR</button>
+            <button type="button" data-lingua="de" aria-pressed="false">DE</button>
+          </div>
+          <div class="tel-azioni" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F2A26" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F2A26" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F2A26" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A4552F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- una stessa idea, cinque modi di dirla -->
+  <section id="lingue" class="fascia">
+    <div class="contenitore sezione">
+      <div class="intro">
+        <p class="occhiello">Una stessa idea, cinque modi di dirla</p>
+        <h2 class="titolo medio">Non traduzioni letterali, ma i modi di dire che si usano davvero.</h2>
+      </div>
+      <div class="esempi" aria-label="Scegli un esempio">
+        <button type="button" data-esempio="0" aria-pressed="true">Prendere due piccioni con una fava</button>
+        <button type="button" data-esempio="1" aria-pressed="false">Cadere dalla padella nella brace</button>
+        <button type="button" data-esempio="2" aria-pressed="false">In bocca al lupo!</button>
+      </div>
+      <div class="confronto" aria-live="polite">
+        <ul class="righe" data-righe></ul>
+        <div class="dettagli">
+          <div>
+            <p class="etichetta">Significato</p>
+            <p class="sig" data-sig></p>
+          </div>
+          <div>
+            <p class="etichetta" data-orig-etichetta>Origine</p>
+            <p class="orig" data-orig></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- come funziona -->
+  <section id="funziona" class="contenitore sezione" style="padding-top: 96px; padding-bottom: 96px; gap: 44px">
+    <div class="intro">
+      <p class="occhiello">Come funziona</p>
+      <h2 class="titolo medio">Un taccuino da sfogliare, una pagina alla volta.</h2>
+    </div>
+    <div class="punti">
+      <div class="punto">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A4552F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <h3 class="titolo piccolo">Un detto al giorno</h3>
+        <p>Ogni giorno l’app si apre su un modo di dire che non hai ancora letto. Se vuoi, una notifica te lo ricorda all’ora che preferisci.</p>
+      </div>
+      <div class="punto">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A4552F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <h3 class="titolo piccolo">Cinque lingue</h3>
+        <p>Scorri la frase a destra e a sinistra per vederla in italiano, inglese, spagnolo, francese e tedesco.</p>
+      </div>
+      <div class="punto">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A4552F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <h3 class="titolo piccolo">Significato e origine</h3>
+        <p>Tocca la frase: si apre la spiegazione, con il significato e la storia di ogni espressione, lingua per lingua.</p>
+      </div>
+      <div class="punto">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A4552F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <h3 class="titolo piccolo">Il taccuino</h3>
+        <p>365 pagine da sfogliare, 25 temi, le tue preferite e una ricerca che trova le frasi in tutte e cinque le lingue.</p>
+      </div>
+      <div class="punto">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A4552F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <h3 class="titolo piccolo">La foto del giorno</h3>
+        <p>Scatta una foto con la frase sopra, scegliendo fra undici maschere, e salvala o condividila.</p>
+      </div>
+      <div class="punto">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A4552F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        <h3 class="titolo piccolo">Segnala un errore</h3>
+        <p>Hai trovato un’imprecisione? Segnalala direttamente dalla pagina: i testi migliorano grazie a chi li legge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- condividi -->
+  <section class="carta-fascia">
+    <div class="contenitore condividi">
+      <div class="testo">
+        <p class="occhiello">Condividi</p>
+        <h2 class="titolo medio">La frase giusta, al momento giusto.</h2>
+        <p class="corpo">Un tocco e la pagina che stai leggendo diventa un’immagine da mandare, nella lingua che preferisci.</p>
+      </div>
+      <div class="carte" data-carte aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- gratuito, il caffè, scarica -->
+  <section id="scarica" class="contenitore scarica">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#A4552F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+    <h2 class="titolo medio" style="font-size: clamp(34px, 4vw, 52px)">Gratuito, senza pubblicità.</h2>
+    <p class="corpo">Tutte le 365 pagine sono aperte dal primo giorno. Se Verba volant ti piace, dall’app puoi offrirmi un caffè: è un dono, non sblocca nulla.</p>
+    <!-- quando l'app sarà pubblicata: href = indirizzo della scheda sul Play Store -->
+    <a class="pulsante" href="#scarica" style="margin-top: 10px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
+      Presto su Google Play
+    </a>
+    <p class="nota">Per Android. Italiano, English, Español, Français, Deutsch.</p>
+  </section>
+</main>
+
+<footer class="piede">
+  <div class="contenitore">
+    <div class="note">
+      <p class="occhiello" style="color: var(--tenue)">Note sui testi</p>
+      <p>Le frasi, i significati e le origini sono stati raccolti e redatti con l’aiuto dell’intelligenza artificiale, poi confrontati con dizionari e fonti pubbliche. L’origine di molti modi di dire è incerta o discussa: quelle riportate sono le spiegazioni più accreditate, non fatti accertati.</p>
+    </div>
+    <div class="collegamenti">
+      <a href="privacy/">Informativa sulla privacy</a>
+      <a href="../">Le altre app di devtbe</a>
+      <span>© 2026 devtbe</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var ESEMPI = [
+    {
+      pagina: 1,
+      esp: { it: 'Prendere due piccioni con una fava', en: 'To kill two birds with one stone', es: 'Matar dos pájaros de un tiro', fr: 'Faire d’une pierre deux coups', de: 'Zwei Fliegen mit einer Klappe schlagen' },
+      sig: 'Ottenere due risultati con una sola azione.',
+      origLingua: 'FR',
+      orig: 'Già attestata in Montaigne, nel XVI secolo; probabilmente più antica.'
+    },
+    {
+      pagina: 9,
+      esp: { it: 'Cadere dalla padella nella brace', en: 'Out of the frying pan into the fire', es: 'Salir de Guatemala y meterse en Guatepeor', fr: 'Tomber de Charybde en Scylla', de: 'Vom Regen in die Traufe kommen' },
+      sig: 'Passare da una situazione difficile a una peggiore.',
+      origLingua: 'FR',
+      orig: 'Viene dall’«Odissea» (canto XII): Scilla e Cariddi, i due mostri dello stretto di Messina. Il verso latino «Incidit in Scyllam qui vult vitare Charybdim» è di Gualtiero di Châtillon (XII secolo).'
+    },
+    {
+      pagina: 29,
+      esp: { it: 'In bocca al lupo!', en: 'Break a leg!', es: '¡Mucha mierda!', fr: 'Je te dis merde !', de: 'Hals- und Beinbruch!' },
+      sig: 'Augurio di buona fortuna prima di una prova.',
+      origLingua: 'EN',
+      orig: 'Nasce nel teatro americano: la prima attestazione a stampa è del 1948. Si augura il contrario della fortuna perché dire «buona fortuna» a un attore porterebbe sfortuna.'
+    }
+  ];
+  var LINGUE = ['it', 'en', 'es', 'fr', 'de'];
+  var stato = { ex: 0, lingua: 'it' };
+  var $ = function (s) { return document.querySelector(s); };
+
+  function elemento(tag, classe, testo) {
+    var el = document.createElement(tag);
+    if (classe) el.className = classe;
+    if (testo != null) el.textContent = testo;
+    return el;
+  }
+
+  function disegna() {
+    var e = ESEMPI[stato.ex];
+    $('[data-pagina]').textContent = 'Pagina ' + e.pagina;
+    $('[data-frase]').textContent = e.esp[stato.lingua];
+    document.querySelectorAll('[data-lingua]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lingua') === stato.lingua));
+    });
+    document.querySelectorAll('[data-esempio]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(Number(b.getAttribute('data-esempio')) === stato.ex));
+    });
+
+    var righe = $('[data-righe]');
+    righe.replaceChildren();
+    LINGUE.forEach(function (l) {
+      var li = elemento('li');
+      li.append(elemento('span', 'codice', l.toUpperCase()), elemento('span', 'esp', e.esp[l]));
+      righe.append(li);
+    });
+    $('[data-sig]').textContent = e.sig;
+    $('[data-orig-etichetta]').textContent = 'Origine · ' + e.origLingua;
+    $('[data-orig]').textContent = e.orig;
+
+    var carte = $('[data-carte]');
+    carte.replaceChildren();
+    ['it', 'en', 'fr'].forEach(function (l) {
+      var c = elemento('div', 'carta');
+      var centro = elemento('div', 'centro');
+      centro.append(elemento('span', 'fr', e.esp[l]), elemento('span', 'filo'), elemento('span', 'cod', l.toUpperCase()));
+      c.append(elemento('span', 'pag', 'Pagina ' + e.pagina), centro, elemento('span', 'firma', 'Verba volant'));
+      carte.append(c);
+    });
+  }
+
+  document.querySelectorAll('[data-lingua]').forEach(function (b) {
+    b.addEventListener('click', function () { stato.lingua = b.getAttribute('data-lingua'); disegna(); });
+  });
+  document.querySelectorAll('[data-esempio]').forEach(function (b) {
+    b.addEventListener('click', function () { stato.ex = Number(b.getAttribute('data-esempio')); disegna(); });
+  });
+  disegna();
+})();
+</script>
+</body>
+</html>
